@@ -1,0 +1,10 @@
+.env
+.env.local
+.env.*.local
+conf/bookshare.xml
+backup.sql
+Sql backup/
+private-data/
+migration-input/
+migration-output/
+*.log
