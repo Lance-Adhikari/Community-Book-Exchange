@@ -1,0 +1,52 @@
+@import "../styles/site.css";
+@import "../styles/auth.css";
+
+:root {
+  --primary-blue: #2563eb;
+  --primary-blue-hover: #1d4ed8;
+  --dark-blue: #1e3a5f;
+  --light-background: #f3f8fc;
+  --white: #ffffff;
+  --main-text: #1f2937;
+  --secondary-text: #607086;
+  --border: #dbe4ee;
+  --error: #9f1239;
+  --error-background: #fff1f2;
+  --success: #166534;
+  --success-background: #f0fdf4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--light-background);
+  color: var(--main-text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
