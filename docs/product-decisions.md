@@ -23,3 +23,11 @@ The following decisions are approved for version 1:
 19. The watermarked Getty Images asset must not be used.
 20. Logo and video ownership must be confirmed before production.
 21. Git history containing secrets will be remediated after a verified backup.
+
+## Current security-containment status
+
+- The legacy Gmail SMTP credential is unchanged for now and must not be used by the rebuilt application.
+- The legacy MySQL credential is unchanged for now and must not be used by the rebuilt application.
+- Git-history remediation is deferred.
+- The GitGuardian incidents remain open while history remediation is deferred.
+- The rebuilt application may use only newly issued Supabase credentials and newly issued credentials from a future email provider.
