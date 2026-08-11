@@ -57,8 +57,10 @@ export type Database = {
           id: number
           is_active: boolean
           isbn: string | null
-          owner_id: string
+          owner_display_name: string
+          owner_id: string | null
           published_year: number | null
+          source_kind: string
           status: Database["public"]["Enums"]["book_status"]
           title: string
           updated_at: string
@@ -73,8 +75,10 @@ export type Database = {
           id?: number
           is_active?: boolean
           isbn?: string | null
-          owner_id: string
+          owner_display_name?: string
+          owner_id?: string | null
           published_year?: number | null
+          source_kind?: string
           status?: Database["public"]["Enums"]["book_status"]
           title: string
           updated_at?: string
@@ -89,8 +93,10 @@ export type Database = {
           id?: number
           is_active?: boolean
           isbn?: string | null
-          owner_id?: string
+          owner_display_name?: string
+          owner_id?: string | null
           published_year?: number | null
+          source_kind?: string
           status?: Database["public"]["Enums"]["book_status"]
           title?: string
           updated_at?: string

@@ -23,6 +23,18 @@ The following decisions are approved for version 1:
 19. The watermarked Getty Images asset must not be used.
 20. Logo and video ownership must be confirmed before production.
 21. Git history containing secrets will be remediated after a verified backup.
+22. Basic legacy member records will be preserved in non-public database storage.
+23. All legacy books will be preserved, including duplicate-looking rows with distinct legacy identifiers.
+24. Original legacy book ownership and identifiers will be retained as private provenance.
+25. Legacy email, phone, and address information may be migrated only into non-public storage.
+26. Legacy passwords and reset tokens will never be imported into Supabase Auth or application tables.
+27. Legacy members remain unclaimed until linked to a verified Supabase identity.
+28. Duplicate-email claims require manual review and cannot transfer books automatically.
+29. Legacy `CategoryId` 0 records are preserved and mapped to Other / Uncategorized.
+30. Books with unresolved owners remain preserved and browsable but unmanageable until resolved.
+31. Imported books begin unavailable pending ownership and status review.
+32. Borrow and transaction-history migration is deferred to a later phase.
+33. Verified account claiming will never remove original legacy provenance.
 
 ## Current security-containment status
 
