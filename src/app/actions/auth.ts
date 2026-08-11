@@ -31,8 +31,19 @@ function normalizeEmail(value: string) {
 function errorState(
   message: string,
   fieldErrors?: AuthActionState["fieldErrors"],
+  fieldValues?: AuthActionState["fieldValues"],
 ): AuthActionState {
-  return { status: "error", message, fieldErrors };
+  return { status: "error", message, fieldErrors, fieldValues };
+}
+
+function registrationFieldValues(
+  displayName: string,
+  email: string,
+): AuthActionState["fieldValues"] {
+  return {
+    displayName: displayName.length <= 80 ? displayName : "",
+    email: email.length <= 254 ? email : "",
+  };
 }
 
 export async function register(
@@ -44,6 +55,7 @@ export async function register(
   const password = valueFrom(formData, "password");
   const confirmPassword = valueFrom(formData, "confirmPassword");
   const fieldErrors: AuthActionState["fieldErrors"] = {};
+  const fieldValues = registrationFieldValues(displayName, email);
 
   if (displayName.length < 2 || displayName.length > 80) {
     fieldErrors.displayName = "Enter a display name between 2 and 80 characters.";
@@ -62,7 +74,11 @@ export async function register(
   }
 
   if (Object.keys(fieldErrors).length > 0) {
-    return errorState("Please correct the highlighted fields.", fieldErrors);
+    return errorState(
+      "Please correct the highlighted fields.",
+      fieldErrors,
+      fieldValues,
+    );
   }
 
   const supabase = await createClient();
@@ -78,6 +94,8 @@ export async function register(
   if (error) {
     return errorState(
       "We could not create your account. Check the details and try again.",
+      undefined,
+      fieldValues,
     );
   }
 

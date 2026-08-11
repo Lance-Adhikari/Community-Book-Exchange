@@ -17,6 +17,7 @@ import {
 
 type FieldProps = {
   autoComplete: string;
+  defaultValue?: string;
   error?: string;
   label: string;
   maxLength: number;
@@ -27,6 +28,7 @@ type FieldProps = {
 
 function FormField({
   autoComplete,
+  defaultValue,
   error,
   label,
   maxLength,
@@ -44,6 +46,7 @@ function FormField({
         name={name}
         type={type}
         autoComplete={autoComplete}
+        defaultValue={defaultValue}
         minLength={minLength}
         maxLength={maxLength}
         required
@@ -118,25 +121,31 @@ export function LoginForm() {
 
 export function RegisterForm() {
   const [state, formAction] = useActionState(register, initialAuthActionState);
+  const displayName = state.fieldValues?.displayName ?? "";
+  const email = state.fieldValues?.email ?? "";
 
   return (
     <form className="auth-form" action={formAction} noValidate>
       <FormStatus state={state} />
       <FormField
+        key={`displayName:${displayName}`}
         label="Display name"
         name="displayName"
         type="text"
         autoComplete="nickname"
         minLength={2}
         maxLength={80}
+        defaultValue={displayName}
         error={state.fieldErrors?.displayName}
       />
       <FormField
+        key={`email:${email}`}
         label="Email"
         name="email"
         type="email"
         autoComplete="email"
         maxLength={254}
+        defaultValue={email}
         error={state.fieldErrors?.email}
       />
       <FormField
