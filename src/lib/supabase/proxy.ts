@@ -6,8 +6,14 @@ import type { Database } from "@/types/database.types";
 
 const AUTH_ENTRY_PATHS = new Set(["/login", "/register"]);
 
-function isDashboardPath(pathname: string) {
-  return pathname === "/dashboard" || pathname.startsWith("/dashboard/");
+function isProtectedPath(pathname: string) {
+  return (
+    pathname === "/dashboard" ||
+    pathname.startsWith("/dashboard/") ||
+    pathname === "/my-books" ||
+    pathname.startsWith("/my-books/") ||
+    pathname === "/books/new"
+  );
 }
 
 function redirectWithSessionCookies(url: URL, sessionResponse: NextResponse) {
@@ -63,11 +69,11 @@ export async function updateSession(request: NextRequest) {
   const hasVerifiedClaims = !error && Boolean(data?.claims?.sub);
   const pathname = request.nextUrl.pathname;
 
-  if (!hasVerifiedClaims && isDashboardPath(pathname)) {
+  if (!hasVerifiedClaims && isProtectedPath(pathname)) {
     const loginUrl = request.nextUrl.clone();
     loginUrl.pathname = "/login";
     loginUrl.search = "";
-    loginUrl.searchParams.set("next", "/dashboard");
+    loginUrl.searchParams.set("next", pathname);
     return redirectWithSessionCookies(loginUrl, supabaseResponse);
   }
 

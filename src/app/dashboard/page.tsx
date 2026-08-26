@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 import { logout } from "@/app/actions/auth";
@@ -33,8 +34,12 @@ export default async function DashboardPage() {
               Welcome{profile?.display_name ? `, ${profile.display_name}` : ""}
             </h2>
             <p>
-              Your account is ready. Book sharing features have not been implemented yet.
+              Browse the community catalog or manage books linked to your account.
             </p>
+            <div className="dashboard-actions">
+              <Link className="primary-link-button" href="/my-books">My Books</Link>
+              <Link className="secondary-link-button" href="/books/new">Add Book</Link>
+            </div>
           </div>
           <form action={logout}>
             <button className="auth-submit auth-submit--compact" type="submit">

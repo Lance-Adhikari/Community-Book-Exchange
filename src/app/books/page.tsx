@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { SiteHeader } from "@/components/site-header";
 import { createClient } from "@/lib/supabase/server";
@@ -40,7 +41,9 @@ export default async function BooksPage() {
             {books.map((book) => (
               <article className="book-card" key={book.id}>
                 <div className="book-card__heading">
-                  <h3>{book.title}</h3>
+                  <h3>
+                    <Link href={`/books/${book.id}`}>{book.title}</Link>
+                  </h3>
                   <span className="book-card__status">
                     {book.status.replaceAll("_", " ")}
                   </span>
@@ -70,6 +73,9 @@ export default async function BooksPage() {
                   <p className="book-card__description">{book.description}</p>
                 ) : null}
                 <p className="book-card__owner">Shared by {book.owner_display_name}</p>
+                <Link className="book-card__link" href={`/books/${book.id}`}>
+                  View details
+                </Link>
               </article>
             ))}
           </section>

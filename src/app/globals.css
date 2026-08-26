@@ -1,5 +1,6 @@
 @import "../styles/site.css";
 @import "../styles/auth.css";
+@import "../styles/books.css";
 
 :root {
   --primary-blue: #2563eb;
