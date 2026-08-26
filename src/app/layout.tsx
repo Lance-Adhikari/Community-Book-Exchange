@@ -6,6 +6,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Community Book Exchange",
   description: "A community platform for sharing and borrowing books.",
+  icons: {
+    icon: "/Images/logo.jpg",
+  },
 };
 
 export const viewport: Viewport = {

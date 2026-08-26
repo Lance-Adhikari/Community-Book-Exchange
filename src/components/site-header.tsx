@@ -1,10 +1,21 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type SiteHeaderProps = {
   title: string;
+  navigation?: "legacy" | "homepage";
 };
 
-export function SiteHeader({ title }: SiteHeaderProps) {
+const homepageLinks = [
+  { href: "/books", label: "Browse Books" },
+  { href: "/login", label: "Login" },
+  { href: "/register", label: "Register" },
+] as const;
+
+export function SiteHeader({
+  title,
+  navigation = "legacy",
+}: SiteHeaderProps) {
   return (
     <header className="site-header">
       <h1>{title}</h1>
@@ -18,9 +29,22 @@ export function SiteHeader({ title }: SiteHeaderProps) {
         priority
       />
 
-      <nav className="site-header__nav" aria-label="Primary navigation">
-        <a href="/contactUs.html">Contact Us</a>
-        <a href="/aboutUs.html">About Us</a>
+      <nav
+        className={`site-header__nav${navigation === "homepage" ? " site-header__nav--homepage" : ""}`}
+        aria-label="Primary navigation"
+      >
+        {navigation === "homepage" ? (
+          homepageLinks.map((link) => (
+            <Link href={link.href} key={link.href}>
+              {link.label}
+            </Link>
+          ))
+        ) : (
+          <>
+            <Link href="/">Home</Link>
+            <Link href="/books">Browse Books</Link>
+          </>
+        )}
       </nav>
     </header>
   );

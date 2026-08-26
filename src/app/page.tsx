@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 export default function HomePage() {
   return (
     <>
-      <SiteHeader title="Community Book Exchange" />
+      <SiteHeader title="Community Book Exchange" navigation="homepage" />
 
       <main>
         <section className="motto" aria-label="Community Book Exchange introduction">
