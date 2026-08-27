@@ -3,14 +3,16 @@
 @import "../styles/books.css";
 
 :root {
+  --header-navy: #0f172a;
   --primary-blue: #2563eb;
   --primary-blue-hover: #1d4ed8;
-  --dark-blue: #1e3a5f;
-  --light-background: #f3f8fc;
+  --dark-blue: #1e293b;
+  --light-background: #f8fafc;
   --white: #ffffff;
-  --main-text: #1f2937;
-  --secondary-text: #607086;
-  --border: #dbe4ee;
+  --main-text: #1e293b;
+  --secondary-text: #64748b;
+  --border: #cbd5e1;
+  --light-border: #e2e8f0;
   --error: #9f1239;
   --error-background: #fff1f2;
   --success: #166534;

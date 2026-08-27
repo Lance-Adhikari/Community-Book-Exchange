@@ -12,10 +12,10 @@
 .status-card {
   width: min(100%, 520px);
   padding: 30px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--light-border);
   border-radius: 10px;
   background: var(--white);
-  box-shadow: 0 10px 24px rgba(30, 58, 95, 0.12);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.09);
 }
 
 .auth-card__heading {
@@ -63,7 +63,7 @@
   width: 100%;
   min-height: 46px;
   padding: 10px 12px;
-  border: 1px solid #9aa9bb;
+  border: 1px solid var(--border);
   border-radius: 7px;
   background: var(--white);
   color: var(--main-text);
@@ -71,7 +71,7 @@
 
 .auth-field input:focus-visible {
   border-color: var(--primary-blue);
-  outline: 3px solid var(--dark-blue);
+  outline: 3px solid var(--primary-blue);
   outline-offset: 2px;
 }
 
@@ -102,7 +102,7 @@
 }
 
 .auth-submit:focus-visible {
-  outline: 3px solid var(--dark-blue);
+  outline: 3px solid var(--primary-blue);
   outline-offset: 3px;
   box-shadow: 0 0 0 6px var(--white);
 }
@@ -141,7 +141,7 @@
 }
 
 .auth-links a:focus-visible {
-  outline: 3px solid var(--dark-blue);
+  outline: 3px solid var(--primary-blue);
   outline-offset: 3px;
 }
 
