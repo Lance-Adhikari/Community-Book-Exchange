@@ -28,14 +28,6 @@ export default function HomePage() {
             Your browser does not support the video tag.
           </video>
         </div>
-
-        <section className="updates_and_fixes" aria-label="Updates and fixes">
-          <p>Updates &amp; Fixes</p>
-        </section>
-
-        <section className="media_platform" aria-label="Social media platforms">
-          <p>Social Media Platforms</p>
-        </section>
       </main>
     </>
   );

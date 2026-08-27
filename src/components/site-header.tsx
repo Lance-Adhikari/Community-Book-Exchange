@@ -5,14 +5,12 @@ import { logout } from "@/app/actions/auth";
 import { createClient } from "@/lib/supabase/server";
 
 const anonymousLinks = [
-  { href: "/", label: "Home" },
   { href: "/books", label: "Browse Books" },
   { href: "/login", label: "Login" },
   { href: "/register", label: "Register" },
 ] as const;
 
 const authenticatedLinks = [
-  { href: "/", label: "Home" },
   { href: "/books", label: "Browse Books" },
   { href: "/dashboard", label: "Dashboard" },
   { href: "/my-books", label: "My Books" },
