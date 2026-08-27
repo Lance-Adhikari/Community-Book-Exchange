@@ -13,8 +13,6 @@ const anonymousLinks = [
 const authenticatedLinks = [
   { href: "/books", label: "Browse Books" },
   { href: "/dashboard", label: "Dashboard" },
-  { href: "/my-books", label: "My Books" },
-  { href: "/books/new", label: "Add Book" },
 ] as const;
 
 export async function SiteHeader({ title }: { title: string }) {

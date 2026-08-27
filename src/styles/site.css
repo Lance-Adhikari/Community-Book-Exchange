@@ -90,9 +90,8 @@
 }
 
 .site-header__nav--authenticated {
-  top: 20px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(110px, 1fr));
+  top: 18px;
+  width: 128px;
   gap: 8px;
 }
 
@@ -103,6 +102,7 @@
 
 .site-header__nav--authenticated a,
 .site-header__nav--authenticated button {
+  width: 100%;
   min-width: 0;
   padding: 7px 9px;
 }
@@ -447,6 +447,7 @@
   }
 
   .site-header__nav--authenticated {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
+    max-width: 220px;
   }
 }
