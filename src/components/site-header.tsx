@@ -27,14 +27,20 @@ export async function SiteHeader({ title }: { title: string }) {
     <header className="site-header">
       <h1>{title}</h1>
 
-      <Image
-        src="/Images/logo.jpg"
-        width={110}
-        height={110}
-        className="logo_move"
-        alt="Community Book Exchange logo"
-        priority
-      />
+      <Link
+        className="site-header__logo-link"
+        href="/"
+        aria-label="Go to the Community Book Exchange homepage"
+      >
+        <Image
+          src="/Images/logo.jpg"
+          width={110}
+          height={110}
+          className="logo_move"
+          alt="Community Book Exchange logo"
+          priority
+        />
+      </Link>
 
       <nav
         className={`site-header__nav ${
