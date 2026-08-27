@@ -22,7 +22,7 @@ export default async function BooksPage() {
 
   return (
     <>
-      <SiteHeader title="Community Book Exchange" navigation="homepage" />
+      <SiteHeader title="Community Book Exchange" />
       <main className="catalog-main">
         <section className="catalog-intro" aria-labelledby="catalog-title">
           <p className="catalog-eyebrow">Community catalog</p>

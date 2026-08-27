@@ -12,7 +12,10 @@ function isProtectedPath(pathname: string) {
     pathname.startsWith("/dashboard/") ||
     pathname === "/my-books" ||
     pathname.startsWith("/my-books/") ||
-    pathname === "/books/new"
+    pathname === "/my-requests" ||
+    pathname.startsWith("/my-requests/") ||
+    pathname === "/books/new" ||
+    /^\/books\/[1-9]\d*\/edit$/.test(pathname)
   );
 }
 

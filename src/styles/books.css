@@ -251,6 +251,220 @@
   margin-top: 16px;
 }
 
+.book-card__actions,
+.workflow-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.book-card__actions .book-card__link {
+  margin-top: 18px;
+}
+
+.workflow-main {
+  display: grid;
+  gap: 38px;
+}
+
+.workflow-main > .catalog-intro {
+  margin-bottom: 0;
+}
+
+.workflow-section {
+  display: grid;
+  gap: 18px;
+}
+
+.workflow-section__heading,
+.workflow-card__heading,
+.dashboard-overview__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.workflow-section__heading h2,
+.workflow-card h3,
+.book-danger-zone h3,
+.dashboard-overview h2 {
+  margin: 0;
+  color: var(--dark-blue);
+}
+
+.workflow-section__heading > span {
+  color: var(--secondary-text);
+  font-weight: 700;
+}
+
+.workflow-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
+  gap: 18px;
+}
+
+.workflow-card,
+.dashboard-overview {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--white);
+  box-shadow: 0 4px 14px rgba(30, 58, 95, 0.08);
+}
+
+.workflow-card p {
+  color: var(--secondary-text);
+  line-height: 1.55;
+}
+
+.workflow-card a {
+  color: var(--primary-blue-hover);
+}
+
+.workflow-card__message {
+  padding: 12px;
+  border-left: 4px solid var(--primary-blue);
+  background: var(--light-background);
+}
+
+.workflow-card__meta {
+  font-size: 0.9rem;
+}
+
+.workflow-card__details {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.workflow-card__details div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.workflow-card__details dd {
+  margin: 0;
+  font-weight: 700;
+  text-align: right;
+}
+
+.workflow-form {
+  display: grid;
+  gap: 8px;
+}
+
+.workflow-form .auth-submit--compact {
+  margin-top: 0;
+}
+
+.workflow-button {
+  min-height: 42px;
+  padding: 9px 16px;
+  border: 1px solid var(--primary-blue-hover);
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.workflow-button--secondary {
+  background: var(--white);
+  color: var(--primary-blue-hover);
+}
+
+.workflow-button--danger {
+  border-color: #b91c1c;
+  background: #b91c1c;
+  color: var(--white);
+}
+
+.workflow-button:focus-visible {
+  outline: 3px solid var(--dark-blue);
+  outline-offset: 3px;
+}
+
+.workflow-message {
+  max-width: 34rem;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.workflow-message--error {
+  color: var(--error);
+}
+
+.workflow-message--success {
+  color: var(--success);
+}
+
+.book-danger-zone {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.book-danger-zone p {
+  color: var(--secondary-text);
+}
+
+.book-delete-form {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+}
+
+.dashboard-main--wide {
+  display: block;
+}
+
+.dashboard-overview {
+  width: min(100%, 960px);
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.dashboard-overview__heading > div > p:last-child {
+  color: var(--secondary-text);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.dashboard-tile {
+  display: grid;
+  min-height: 112px;
+  align-content: center;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--light-background);
+  color: var(--dark-blue);
+  text-decoration: none;
+}
+
+.dashboard-tile:hover {
+  border-color: var(--primary-blue);
+}
+
+.dashboard-tile:focus-visible {
+  outline: 3px solid var(--dark-blue);
+  outline-offset: 3px;
+}
+
+.dashboard-tile span {
+  color: var(--secondary-text);
+  line-height: 1.4;
+}
+
 @media only screen and (max-width: 640px) {
   .book-details-main,
   .book-form-main {
@@ -280,5 +494,28 @@
 
   .dashboard-actions a {
     width: 100%;
+  }
+
+  .workflow-section__heading,
+  .workflow-card__heading,
+  .dashboard-overview__heading {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .workflow-actions,
+  .workflow-form,
+  .workflow-actions button,
+  .dashboard-overview__heading form,
+  .dashboard-overview__heading button {
+    width: 100%;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-overview {
+    padding: 24px 18px;
   }
 }

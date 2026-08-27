@@ -88,11 +88,12 @@ function SubmitButton({ label, pendingLabel }: { label: string; pendingLabel: st
   );
 }
 
-export function LoginForm() {
+export function LoginForm({ nextPath = "/dashboard" }: { nextPath?: string }) {
   const [state, formAction] = useActionState(login, initialAuthActionState);
 
   return (
     <form className="auth-form" action={formAction} noValidate>
+      <input type="hidden" name="next" value={nextPath} />
       <FormStatus state={state} />
       <FormField
         label="Email"

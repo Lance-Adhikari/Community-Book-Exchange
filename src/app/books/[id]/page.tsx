@@ -44,10 +44,21 @@ export default async function BookDetailsPage({ params }: BookDetailsPageProps) 
   const userId = claimsData?.claims?.sub;
   const canRequest = book.status === "available" && Boolean(book.owner_id) && book.owner_id !== userId;
   const isOwner = Boolean(userId) && book.owner_id === userId;
+  const { data: latestRequest } = userId && !isOwner
+    ? await supabase
+        .from("borrow_requests")
+        .select("id, status")
+        .eq("book_id", book.id)
+        .eq("requester_id", userId)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle()
+    : { data: null };
+  const hasOpenRequest = latestRequest?.status === "pending" || latestRequest?.status === "approved";
 
   return (
     <>
-      <SiteHeader title="Community Book Exchange" navigation="homepage" />
+      <SiteHeader title="Community Book Exchange" />
       <main className="book-details-main">
         <Link className="book-back-link" href="/books">← Back to Browse Books</Link>
         <article className="book-details-card">
@@ -78,16 +89,27 @@ export default async function BookDetailsPage({ params }: BookDetailsPageProps) 
           ) : null}
 
           <section className="book-request" aria-labelledby="book-request-title">
-            <h3 id="book-request-title">Request this book</h3>
+            <h3 id="book-request-title">{isOwner ? "Manage this book" : "Request this book"}</h3>
             {isOwner ? (
-              <p>This book belongs to your account and can be managed from My Books.</p>
+              <div className="workflow-actions">
+                <Link className="primary-link-button" href={`/books/${book.id}/edit`}>Edit Book</Link>
+                <Link className="secondary-link-button" href="/my-books">Manage requests</Link>
+              </div>
             ) : !canRequest ? (
               <p>This book is not currently available for requests.</p>
+            ) : hasOpenRequest ? (
+              <p>
+                Your request is <strong>{latestRequest.status}</strong>.{" "}
+                <Link href="/my-requests">View your requests</Link>
+              </p>
             ) : userId ? (
               <BookRequestForm bookId={book.id} />
             ) : (
               <p>
-                <Link className="primary-link-button" href="/login">
+                <Link
+                  className="primary-link-button"
+                  href={`/login?next=${encodeURIComponent(`/books/${book.id}`)}`}
+                >
                   Log in to request this book
                 </Link>
               </p>

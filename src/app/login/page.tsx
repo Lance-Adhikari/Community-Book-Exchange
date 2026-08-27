@@ -6,11 +6,11 @@ import { LoginForm } from "@/components/auth-forms";
 export const metadata: Metadata = { title: "Login | Community Book Exchange" };
 
 type LoginPageProps = {
-  searchParams: Promise<{ message?: string }>;
+  searchParams: Promise<{ message?: string; next?: string }>;
 };
 
 export default async function LoginPage({ searchParams }: LoginPageProps) {
-  const { message } = await searchParams;
+  const { message, next } = await searchParams;
 
   return (
     <AuthPage title="Login" description="Access your Community Book Exchange account.">
@@ -19,7 +19,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
           We could not complete authentication. Please try again.
         </p>
       ) : null}
-      <LoginForm />
+      <LoginForm nextPath={next} />
     </AuthPage>
   );
 }

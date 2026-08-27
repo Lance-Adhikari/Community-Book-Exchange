@@ -42,36 +42,60 @@
   gap: 17px;
 }
 
-.site-header__nav a {
+.site-header__nav a,
+.site-header__nav button {
   display: inline-block;
   min-width: 110px;
   padding: 10px 14px;
   border: 1px solid rgba(255, 255, 255, 0.48);
   border-radius: 8px;
+  background: transparent;
   color: var(--white);
+  cursor: pointer;
+  font: inherit;
   font-size: 0.95rem;
   font-weight: 700;
   text-decoration: none;
   transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
 
-.site-header__nav a:hover {
+.site-header__nav a:hover,
+.site-header__nav button:hover {
   border-color: var(--white);
   background-color: rgba(255, 255, 255, 0.14);
   transform: translateY(-1px);
 }
 
-.site-header__nav--homepage {
+.site-header__nav--anonymous {
   top: 18px;
   gap: 8px;
 }
 
-.site-header__nav--homepage a {
+.site-header__nav--anonymous a {
   min-width: 128px;
   padding: 8px 12px;
 }
 
-.site-header__nav a:focus-visible {
+.site-header__nav--authenticated {
+  top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(110px, 1fr));
+  gap: 8px;
+}
+
+.site-header__nav--authenticated form,
+.site-header__nav--authenticated button {
+  width: 100%;
+}
+
+.site-header__nav--authenticated a,
+.site-header__nav--authenticated button {
+  min-width: 0;
+  padding: 7px 9px;
+}
+
+.site-header__nav a:focus-visible,
+.site-header__nav button:focus-visible {
   outline: 3px solid var(--white);
   outline-offset: 3px;
 }
@@ -335,18 +359,19 @@
     gap: 13px;
   }
 
-  .site-header__nav a {
+  .site-header__nav a,
+  .site-header__nav button {
     min-width: 104px;
     padding: 8px 10px;
     font-size: 0.85rem;
   }
 
-  .site-header__nav--homepage {
+  .site-header__nav--anonymous {
     top: 17px;
     gap: 7px;
   }
 
-  .site-header__nav--homepage a {
+  .site-header__nav--anonymous a {
     padding: 7px 10px;
   }
 }
@@ -413,29 +438,35 @@
   }
 
   .site-header__nav {
+    display: grid;
+    width: calc(100% - 24px);
     top: auto;
     right: auto;
     bottom: 18px;
     left: 50%;
-    flex-direction: row;
     gap: 8px;
     transform: translateX(-50%);
   }
 
-  .site-header__nav a {
-    min-width: 128px;
-  }
-
-  .site-header__nav--homepage {
-    width: calc(100% - 24px);
-    max-width: 420px;
-    gap: 8px;
-  }
-
-  .site-header__nav--homepage a {
-    flex: 1;
+  .site-header__nav a,
+  .site-header__nav button {
+    width: 100%;
     min-width: 0;
     padding: 8px 5px;
     white-space: nowrap;
+  }
+
+  .site-header__nav--anonymous {
+    max-width: 420px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .site-header:has(.site-header__nav--authenticated) {
+    min-height: 258px;
+    padding-bottom: 112px;
+  }
+
+  .site-header__nav--authenticated {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

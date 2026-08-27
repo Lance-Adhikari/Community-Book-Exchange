@@ -7,6 +7,24 @@ import { getPublicEnvironment } from "@/lib/env";
 import { createClient } from "@/lib/supabase/server";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const LOGIN_DESTINATIONS = new Set([
+  "/dashboard",
+  "/my-books",
+  "/my-requests",
+  "/books/new",
+]);
+
+function safeLoginDestination(value: string) {
+  if (LOGIN_DESTINATIONS.has(value)) {
+    return value;
+  }
+
+  if (/^\/books\/[1-9]\d*(?:\/edit)?$/.test(value)) {
+    return value;
+  }
+
+  return "/dashboard";
+}
 
 function authCallbackUrl(nextPath: "/dashboard" | "/update-password") {
   const environment = getPublicEnvironment();
@@ -115,6 +133,7 @@ export async function login(
 ): Promise<AuthActionState> {
   const email = normalizeEmail(valueFrom(formData, "email"));
   const password = valueFrom(formData, "password");
+  const destination = safeLoginDestination(valueFrom(formData, "next"));
 
   if (email.length > 254 || !EMAIL_PATTERN.test(email) || password.length > 128) {
     return errorState("The email or password is invalid.");
@@ -127,7 +146,7 @@ export async function login(
     return errorState("The email or password is invalid.");
   }
 
-  redirect("/dashboard");
+  redirect(destination);
 }
 
 export async function requestPasswordReset(

@@ -1,21 +1,30 @@
 import Image from "next/image";
 import Link from "next/link";
 
-type SiteHeaderProps = {
-  title: string;
-  navigation?: "legacy" | "homepage";
-};
+import { logout } from "@/app/actions/auth";
+import { createClient } from "@/lib/supabase/server";
 
-const homepageLinks = [
+const anonymousLinks = [
+  { href: "/", label: "Home" },
   { href: "/books", label: "Browse Books" },
   { href: "/login", label: "Login" },
   { href: "/register", label: "Register" },
 ] as const;
 
-export function SiteHeader({
-  title,
-  navigation = "legacy",
-}: SiteHeaderProps) {
+const authenticatedLinks = [
+  { href: "/", label: "Home" },
+  { href: "/books", label: "Browse Books" },
+  { href: "/dashboard", label: "Dashboard" },
+  { href: "/my-books", label: "My Books" },
+  { href: "/books/new", label: "Add Book" },
+] as const;
+
+export async function SiteHeader({ title }: { title: string }) {
+  const supabase = await createClient();
+  const { data, error } = await supabase.auth.getClaims();
+  const isAuthenticated = !error && Boolean(data?.claims?.sub);
+  const links = isAuthenticated ? authenticatedLinks : anonymousLinks;
+
   return (
     <header className="site-header">
       <h1>{title}</h1>
@@ -30,21 +39,23 @@ export function SiteHeader({
       />
 
       <nav
-        className={`site-header__nav${navigation === "homepage" ? " site-header__nav--homepage" : ""}`}
+        className={`site-header__nav ${
+          isAuthenticated
+            ? "site-header__nav--authenticated"
+            : "site-header__nav--anonymous"
+        }`}
         aria-label="Primary navigation"
       >
-        {navigation === "homepage" ? (
-          homepageLinks.map((link) => (
-            <Link href={link.href} key={link.href}>
-              {link.label}
-            </Link>
-          ))
-        ) : (
-          <>
-            <Link href="/">Home</Link>
-            <Link href="/books">Browse Books</Link>
-          </>
-        )}
+        {links.map((link) => (
+          <Link href={link.href} key={link.href}>
+            {link.label}
+          </Link>
+        ))}
+        {isAuthenticated ? (
+          <form action={logout}>
+            <button type="submit">Logout</button>
+          </form>
+        ) : null}
       </nav>
     </header>
   );
