@@ -70,7 +70,9 @@ export default async function BookDetailsPage({ params }: BookDetailsPageProps) 
                 {book.author ? `by ${book.author}` : "Author not listed"}
               </p>
             </div>
-            <span className="book-card__status">{book.status.replaceAll("_", " ")}</span>
+            <span className="book-card__status" data-status={book.status}>
+              {book.status.replaceAll("_", " ")}
+            </span>
           </div>
 
           <dl className="book-details-list">

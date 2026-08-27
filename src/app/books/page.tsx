@@ -44,7 +44,7 @@ export default async function BooksPage() {
                   <h3>
                     <Link href={`/books/${book.id}`}>{book.title}</Link>
                   </h3>
-                  <span className="book-card__status">
+                  <span className="book-card__status" data-status={book.status}>
                     {book.status.replaceAll("_", " ")}
                   </span>
                 </div>
