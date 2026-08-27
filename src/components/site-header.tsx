@@ -15,10 +15,20 @@ const authenticatedLinks = [
   { href: "/dashboard", label: "Dashboard" },
 ] as const;
 
-export async function SiteHeader({ title }: { title: string }) {
-  const supabase = await createClient();
-  const { data, error } = await supabase.auth.getClaims();
-  const isAuthenticated = !error && Boolean(data?.claims?.sub);
+type SiteHeaderProps = {
+  title: string;
+  isAuthenticated?: boolean;
+};
+
+export async function SiteHeader({ title, isAuthenticated: providedAuthState }: SiteHeaderProps) {
+  let isAuthenticated = providedAuthState;
+
+  if (isAuthenticated === undefined) {
+    const supabase = await createClient();
+    const { data, error } = await supabase.auth.getClaims();
+    isAuthenticated = !error && Boolean(data?.claims?.sub);
+  }
+
   const links = isAuthenticated ? authenticatedLinks : anonymousLinks;
 
   return (
