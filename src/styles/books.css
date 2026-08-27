@@ -1,0 +1,521 @@
+.book-card h3 a,
+.catalog-message a,
+.book-back-link {
+  color: var(--primary-blue-hover);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.book-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.book-card h3 a:hover,
+.book-card h3 a:focus-visible,
+.catalog-message a:hover,
+.catalog-message a:focus-visible,
+.book-back-link:hover,
+.book-back-link:focus-visible {
+  text-decoration-thickness: 2px;
+}
+
+.book-card h3 a:focus-visible,
+.catalog-message a:focus-visible,
+.book-back-link:focus-visible,
+.book-card__link:focus-visible,
+.primary-link-button:focus-visible,
+.secondary-link-button:focus-visible {
+  outline: 3px solid var(--dark-blue);
+  outline-offset: 3px;
+}
+
+.book-card__link {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--primary-blue-hover);
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+.book-details-main,
+.book-form-main {
+  width: min(920px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 38px 0 56px;
+}
+
+.book-back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.book-details-card,
+.book-form-card {
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background-color: var(--white);
+  box-shadow: 0 8px 22px rgba(30, 58, 95, 0.1);
+}
+
+.book-details-card__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.book-details-card h2,
+.book-form-card h2 {
+  margin: 0;
+  color: var(--dark-blue);
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  line-height: 1.18;
+}
+
+.book-details-card__author,
+.book-form-card__heading > p:last-child {
+  margin: 10px 0 0;
+  color: var(--secondary-text);
+  line-height: 1.55;
+}
+
+.book-details-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 28px;
+  margin: 30px 0 0;
+  padding: 22px 0;
+  border-block: 1px solid var(--border);
+}
+
+.book-details-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.book-details-list dt {
+  color: var(--secondary-text);
+}
+
+.book-details-list dd {
+  margin: 0;
+  color: var(--main-text);
+  font-weight: 700;
+  text-align: right;
+  text-transform: capitalize;
+}
+
+.book-description,
+.book-request {
+  margin-top: 26px;
+}
+
+.book-description h3,
+.book-request h3 {
+  margin: 0 0 10px;
+  color: var(--dark-blue);
+}
+
+.book-description p,
+.book-request > p {
+  margin: 0;
+  color: var(--secondary-text);
+  line-height: 1.6;
+}
+
+.primary-link-button,
+.secondary-link-button {
+  display: inline-block;
+  min-height: 44px;
+  padding: 11px 18px;
+  border: 1px solid var(--primary-blue-hover);
+  border-radius: 8px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.primary-link-button {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+.primary-link-button:hover {
+  background-color: var(--primary-blue-hover);
+}
+
+.secondary-link-button {
+  background-color: var(--white);
+  color: var(--primary-blue-hover);
+}
+
+.catalog-intro--with-action {
+  display: flex;
+  max-width: none;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.dashboard-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.book-form-card__heading {
+  margin-bottom: 26px;
+}
+
+.book-form {
+  display: grid;
+  gap: 18px;
+}
+
+.book-form__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.book-form__field {
+  display: grid;
+  gap: 7px;
+}
+
+.book-form__field label {
+  color: var(--dark-blue);
+  font-weight: 700;
+}
+
+.book-form__field input,
+.book-form__field select,
+.book-form__field textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid #9aa9bb;
+  border-radius: 7px;
+  background-color: var(--white);
+  color: var(--main-text);
+  font: inherit;
+}
+
+.book-form__field textarea {
+  resize: vertical;
+}
+
+.book-form__field input:focus-visible,
+.book-form__field select:focus-visible,
+.book-form__field textarea:focus-visible {
+  border-color: var(--primary-blue);
+  outline: 3px solid var(--dark-blue);
+  outline-offset: 2px;
+}
+
+.book-form__field [aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.book-form__field span {
+  color: var(--error);
+  font-size: 0.88rem;
+}
+
+.book-form__message {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 7px;
+  line-height: 1.5;
+}
+
+.book-form__message--error {
+  border: 1px solid #fecdd3;
+  background-color: var(--error-background);
+  color: var(--error);
+}
+
+.book-form__message--success {
+  border: 1px solid #bbf7d0;
+  background-color: var(--success-background);
+  color: var(--success);
+}
+
+.book-request-form {
+  max-width: 620px;
+  margin-top: 16px;
+}
+
+.book-card__actions,
+.workflow-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.book-card__actions .book-card__link {
+  margin-top: 18px;
+}
+
+.workflow-main {
+  display: grid;
+  gap: 38px;
+}
+
+.workflow-main > .catalog-intro {
+  margin-bottom: 0;
+}
+
+.workflow-section {
+  display: grid;
+  gap: 18px;
+}
+
+.workflow-section__heading,
+.workflow-card__heading,
+.dashboard-overview__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.workflow-section__heading h2,
+.workflow-card h3,
+.book-danger-zone h3,
+.dashboard-overview h2 {
+  margin: 0;
+  color: var(--dark-blue);
+}
+
+.workflow-section__heading > span {
+  color: var(--secondary-text);
+  font-weight: 700;
+}
+
+.workflow-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
+  gap: 18px;
+}
+
+.workflow-card,
+.dashboard-overview {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--white);
+  box-shadow: 0 4px 14px rgba(30, 58, 95, 0.08);
+}
+
+.workflow-card p {
+  color: var(--secondary-text);
+  line-height: 1.55;
+}
+
+.workflow-card a {
+  color: var(--primary-blue-hover);
+}
+
+.workflow-card__message {
+  padding: 12px;
+  border-left: 4px solid var(--primary-blue);
+  background: var(--light-background);
+}
+
+.workflow-card__meta {
+  font-size: 0.9rem;
+}
+
+.workflow-card__details {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.workflow-card__details div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.workflow-card__details dd {
+  margin: 0;
+  font-weight: 700;
+  text-align: right;
+}
+
+.workflow-form {
+  display: grid;
+  gap: 8px;
+}
+
+.workflow-form .auth-submit--compact {
+  margin-top: 0;
+}
+
+.workflow-button {
+  min-height: 42px;
+  padding: 9px 16px;
+  border: 1px solid var(--primary-blue-hover);
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.workflow-button--secondary {
+  background: var(--white);
+  color: var(--primary-blue-hover);
+}
+
+.workflow-button--danger {
+  border-color: #b91c1c;
+  background: #b91c1c;
+  color: var(--white);
+}
+
+.workflow-button:focus-visible {
+  outline: 3px solid var(--dark-blue);
+  outline-offset: 3px;
+}
+
+.workflow-message {
+  max-width: 34rem;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.workflow-message--error {
+  color: var(--error);
+}
+
+.workflow-message--success {
+  color: var(--success);
+}
+
+.book-danger-zone {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.book-danger-zone p {
+  color: var(--secondary-text);
+}
+
+.book-delete-form {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+}
+
+.dashboard-main--wide {
+  display: block;
+}
+
+.dashboard-overview {
+  width: min(100%, 960px);
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.dashboard-overview__heading > div > p:last-child {
+  color: var(--secondary-text);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.dashboard-tile {
+  display: grid;
+  min-height: 112px;
+  align-content: center;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--light-background);
+  color: var(--dark-blue);
+  text-decoration: none;
+}
+
+.dashboard-tile:hover {
+  border-color: var(--primary-blue);
+}
+
+.dashboard-tile:focus-visible {
+  outline: 3px solid var(--dark-blue);
+  outline-offset: 3px;
+}
+
+.dashboard-tile span {
+  color: var(--secondary-text);
+  line-height: 1.4;
+}
+
+@media only screen and (max-width: 640px) {
+  .book-details-main,
+  .book-form-main {
+    width: calc(100% - 28px);
+    padding-top: 28px;
+  }
+
+  .book-details-card,
+  .book-form-card {
+    padding: 24px 18px;
+  }
+
+  .book-details-card__heading,
+  .catalog-intro--with-action {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .book-details-list,
+  .book-form__row {
+    grid-template-columns: 1fr;
+  }
+
+  .catalog-intro--with-action .primary-link-button {
+    width: 100%;
+  }
+
+  .dashboard-actions a {
+    width: 100%;
+  }
+
+  .workflow-section__heading,
+  .workflow-card__heading,
+  .dashboard-overview__heading {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .workflow-actions,
+  .workflow-form,
+  .workflow-actions button,
+  .dashboard-overview__heading form,
+  .dashboard-overview__heading button {
+    width: 100%;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-overview {
+    padding: 24px 18px;
+  }
+}

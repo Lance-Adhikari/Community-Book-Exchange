@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Homepage</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/firstpage.css">
 </head>
@@ -12,14 +13,14 @@
 <header>
     <h1>Community Book Exchange</h1>
     
-    <img src="Images/logo.jpg" height="110" class="logo_move">
+    <img src="Images/logo.jpg" width="110" height="110" class="logo_move" alt="Community Book Exchange logo">
     
     <div class="contact">
-        <a style="text-decoration:none;" href="contactUs.html">Contact Us</a>
+        <a href="contactUs.html">Contact Us</a>
     </div>
 
     <div class="about">
-        <a style="text-decoration:none;" href="aboutUs.html">About Us</a>
+        <a href="aboutUs.html">About Us</a>
     </div>
 </header> 
 
@@ -33,20 +34,20 @@
     <p>Come and join us!</p>
 </div>
 
-<form action="register.html">
-    <button class="regbutton">Get Started</button>
+<form action="register.html" class="homepage-registration">
+    <button class="regbutton" type="submit">Get Started</button>
 </form>
 
 <div class="commvideo">
-    <video width="600" controls>
+    <video width="600" controls preload="metadata" playsinline aria-label="Community Book Exchange introduction video">
     <source src="Images/combookexchange.mp4" type="video/mp4">
     Your browser does not support the video tag.
     </video> 
 </div>
 
-<div class="updates_and_fixes" style="background-color:orange;"><p>Updates & Fixes</p></div>
+<div class="updates_and_fixes"><p>Updates & Fixes</p></div>
 
-<div class="media_platform" style="background-color:orange;"><p>Social Media Platforms</p></div>
+<div class="media_platform"><p>Social Media Platforms</p></div>
 
 </body>
 </html>

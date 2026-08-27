@@ -1,0 +1,20 @@
+.env
+.env.local
+.env.*.local
+conf/bookshare.xml
+backup.sql
+Sql backup/
+private-data/
+migration-input/
+migration-output/
+*.log
+node_modules/
+.next/
+out/
+build/
+coverage/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+*.pem

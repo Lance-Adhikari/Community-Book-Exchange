@@ -1,284 +1,311 @@
-/* header */
+/* Shared header */
 
-.dropbtn {
-    background-color: black;
-    color: white;
-    font-size: 16px;
-    border: none;
-    width: 75px;
-    height: 75px;
-    border-top-left-radius: 50% 50%; 
-    border-top-right-radius: 50% 50%; 
-    border-bottom-right-radius: 50% 50%; 
-    border-bottom-left-radius: 50% 50%;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    left: 550px;
-    bottom: 120px;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    text-align: center;
-    left: -60px;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+:root {
+    --primary-blue: #2563eb;
+    --primary-blue-hover: #1d4ed8;
+    --dark-blue: #1e3a5f;
+    --light-background: #f3f8fc;
+    --white: #ffffff;
+    --main-text: #1f2937;
+    --secondary-text: #607086;
+    --border: #dbe4ee;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+}
 
 header {
-    background: #0088ff;
-    color: white;
-    padding: 20px 10px;
+    position: relative;
+    display: flex;
+    min-height: 170px;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 210px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: var(--primary-blue);
+    box-shadow: 0 4px 14px rgba(30, 58, 95, 0.16);
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    font-size: 26px;
-    font-family: sans-serif;
-} 
+}
 
+header h1 {
+    width: 100%;
+    margin: 0;
+    font-size: clamp(1.75rem, 3vw, 2.6rem);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+}
 
+.logo_move {
+    position: absolute;
+    top: 50%;
+    left: 32px;
+    width: 110px;
+    height: 110px;
+    border: 4px solid rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(30, 58, 95, 0.24);
+    object-fit: cover;
+    transform: translateY(-50%);
+}
+
+.contact,
+.about {
+    position: absolute;
+    right: 32px;
+}
+
+.contact {
+    top: 38px;
+}
+
+.about {
+    top: 96px;
+}
+
+header a {
+    display: inline-block;
+    min-width: 110px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    border-radius: 8px;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+header a:hover {
+    border-color: var(--white);
+    background-color: rgba(255, 255, 255, 0.14);
+    transform: translateY(-1px);
+}
+
+header a:focus-visible,
+.dropbtn:focus-visible {
+    outline: 3px solid var(--white);
+    outline-offset: 3px;
+}
 
 #content {
     margin-top: 100px;
 }
 
-.BackDashboard {
-    height: 50px;
-    position: absolute;
-    top: 30px;
-    left: 960px;
-    bottom: 0px;
-    right: 0px;
-}
-
-.back {
-    height: 50px;
-    position: absolute;
-    top: 30px;
-    left: 970px;
-    bottom: 0px;
-    right: 0px;
-}
-
-header h1 {
-    width: 100%;
-}
-
+.BackDashboard,
+.back,
 .myAccount {
+    position: absolute;
+    top: 50%;
+    right: 32px;
     height: 50px;
+    transform: translateY(-50%);
+}
+
+/* Headers that expose Dashboard, Contact Us, and About Us together */
+header:has(> .BackDashboard):has(> .contact):has(> .about) > .BackDashboard {
+    top: 12px;
+    transform: none;
+}
+
+header:has(> .BackDashboard):has(> .contact):has(> .about) > .contact {
+    top: 68px;
+}
+
+header:has(> .BackDashboard):has(> .contact):has(> .about) > .about {
+    top: 116px;
+}
+
+/* Existing account dropdown */
+.dropdown {
     position: absolute;
-    top: 30px;
-    left: 970px;
-    bottom: 0px;
-    right: 0px;
+    top: 50%;
+    right: 32px;
+    display: inline-block;
+    transform: translateY(-50%);
 }
 
+.dropbtn {
+    width: 74px;
+    height: 74px;
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    border-radius: 50%;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 160ms ease, transform 160ms ease;
+}
 
-.logo_move {
+.dropdown-content {
     position: absolute;
-    top: 35px;
-    left: 35px;
-    bottom: 0px;
-    right: 0px;
-    overflow: auto;
-    font-size: 20px;
+    right: 0;
+    z-index: 10;
+    display: none;
+    min-width: 170px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--white);
+    box-shadow: 0 10px 24px rgba(30, 58, 95, 0.18);
+    text-align: left;
 }
 
-a {
-    margin: 10px;
-    padding: 15px;
+.dropdown-content a {
+    display: block;
+    min-width: auto;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: 0;
+    color: var(--main-text);
+    font-weight: 600;
 }
 
-@media only screen and (max-width: 1920px) {
-    body {
-        background-color: lightblue;
-    }
-
-    .myAccount {
-        height: 50px;
-        position: absolute;
-        top: 75px;
-        left: 1600px;
-        bottom: 0px;
-        right: 0px;
-    }
-
-    .BackDashboard {
-        height: 50px;
-        position: absolute;
-        top: 75px;
-        left: 1600px;
-        bottom: 0px;
-        right: 0px;
-    }
-    
-    .contact {
-        position: absolute;
-        top: 50px;
-        left: 1250px;
-        bottom: 0px;
-        right: 0px;
-    }
-    
-    .about {
-        position: absolute;
-        top: 110px;
-        left: 1250px;
-        bottom: 0px;
-        right: 0px;
-    }
+.dropdown-content a:hover,
+.dropdown-content a:focus-visible {
+    background-color: var(--light-background);
+    color: var(--dark-blue);
+    transform: none;
 }
 
-@media only screen and (max-width: 1024px) {
-    .logo_move {
-        width: 100px;
-        height: 100px;
-    }
-
-
-    .contact {
-        scroll-margin-top: 1em;
-        position: absolute;
-        top: 50px;
-        left: 850px;
-        bottom: 0px;
-        right: 0px;
-    }
-    
-    .about {
-        scroll-margin-top: 1em;
-        position: absolute;
-        top: 110px;
-        left: 850px;
-        bottom: 0px;
-        right: 0px;
-    }
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block;
 }
 
-@media only screen and (max-width: 1600px) {
-    .contact {
-        position: absolute;
-        top: 50px;
-        left: 1050px;
-        bottom: 0px;
-        right: 0px;
-    }
-    
-    .about {
-        position: absolute;
-        top: 110px;
-        left: 1050px;
-        bottom: 0px;
-        right: 0px;
-    }
-}
-
-@media only screen and (max-width: 1366px) {
-    .contact {
-        position: absolute;
-        top: 50px;
-        left: 990px;
-        bottom: 0px;
-        right: 0px;
-    }
-    
-    .about {
-        position: absolute;
-        top: 110px;
-        left: 990px;
-        bottom: 0px;
-        right: 0px;
-    }
-}
-
-@media only screen and (max-width: 1280px) {
-    .contact {
-        position: absolute;
-        top: 50px;
-        left: 980px;
-        bottom: 0px;
-        right: 0px;
-    }
-    
-    .about {
-        position: absolute;
-        top: 110px;
-        left: 980px;
-        bottom: 0px;
-        right: 0px;
-    }
-}
-
-@media only screen and (max-width: 1180px) {
-    .contact {
-        position: absolute;
-        top: 50px;
-        left: 900px;
-        bottom: 0px;
-        right: 0px;
-    }
-    
-    .about {
-        position: absolute;
-        top: 110px;
-        left: 900px;
-        bottom: 0px;
-        right: 0px;
-    }
-}
-
-@media only screen and (max-width: 1100px) {
-    .contact {
-        position: absolute;
-        top: 50px;
-        left: 850px;
-        bottom: 0px;
-        right: 0px;
-    }
-    
-    .about {
-        position: absolute;
-        top: 110px;
-        left: 850px;
-        bottom: 0px;
-        right: 0px;
-    }
+.dropdown:hover .dropbtn,
+.dropdown:focus-within .dropbtn {
+    background-color: #17304f;
+    transform: translateY(-1px);
 }
 
 @media only screen and (max-width: 800px) {
-    body {
-        background-color: pink;
+    header {
+        min-height: 160px;
+        padding: 24px 150px 24px 116px;
     }
-}
 
-@media only screen and (max-width: 800px) {
-    body {
-        background-color: pink;
+    header h1 {
+        font-size: 1.7rem;
     }
-}
 
-@media only screen and (max-width: 640px) {
     .logo_move {
-        display: none;
+        left: 20px;
+        width: 82px;
+        height: 82px;
     }
-    body {
-        background-color: purple;
+
+    .contact,
+    .about,
+    .BackDashboard,
+    .back,
+    .myAccount,
+    .dropdown {
+        right: 18px;
+    }
+
+    .contact {
+        top: 34px;
+    }
+
+    .about {
+        top: 88px;
+    }
+
+    header a {
+        min-width: 104px;
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+
+    header:has(> .BackDashboard):has(> .contact):has(> .about) > .BackDashboard {
+        top: 8px;
+    }
+
+    header:has(> .BackDashboard):has(> .contact):has(> .about) > .contact {
+        top: 62px;
+    }
+
+    header:has(> .BackDashboard):has(> .contact):has(> .about) > .about {
+        top: 106px;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    header {
+        min-height: 214px;
+        align-items: flex-start;
+        padding: 35px 20px 68px 92px;
+    }
+
+    header h1 {
+        font-size: 1.45rem;
+    }
+
+    .logo_move {
+        top: 24px;
+        left: 16px;
+        width: 62px;
+        height: 62px;
+        border-width: 3px;
+        transform: none;
+    }
+
+    .contact,
+    .about {
+        top: auto;
+        bottom: 18px;
+    }
+
+    .contact {
+        right: calc(50% + 4px);
+    }
+
+    .about {
+        right: auto;
+        left: calc(50% + 4px);
+    }
+
+    header a {
+        min-width: 128px;
+    }
+
+    .BackDashboard,
+    .back,
+    .myAccount,
+    .dropdown {
+        top: auto;
+        right: 16px;
+        bottom: 18px;
+        transform: none;
+    }
+
+    header:has(> .BackDashboard):has(> .contact):has(> .about) {
+        min-height: 264px;
+    }
+
+    header:has(> .BackDashboard):has(> .contact):has(> .about) > .BackDashboard {
+        top: auto;
+        right: auto;
+        bottom: 68px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    header:has(> .BackDashboard):has(> .contact):has(> .about) > .contact,
+    header:has(> .BackDashboard):has(> .contact):has(> .about) > .about {
+        top: auto;
+        bottom: 18px;
     }
 }

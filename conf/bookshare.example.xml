@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<config>
+  <Serverinfo>
+    <url>${APP_HOST}</url>
+    <protocol>${APP_PROTOCOL}</protocol>
+    <port>${APP_PORT}</port>
+  </Serverinfo>
+
+  <Databaseinfo>
+    <host>${DATABASE_HOST}</host>
+    <username>${DATABASE_USERNAME}</username>
+    <password>${DATABASE_PASSWORD}</password>
+    <name>${DATABASE_NAME}</name>
+  </Databaseinfo>
+
+  <Emailinfo>
+    <SMTPHost>${SMTP_HOST}</SMTPHost>
+    <SMTPPort>${SMTP_PORT}</SMTPPort>
+    <SMTPProtocol>${SMTP_PROTOCOL}</SMTPProtocol>
+    <SMTPUsername>${SMTP_USERNAME}</SMTPUsername>
+    <SMTPPassword>${SMTP_PASSWORD}</SMTPPassword>
+  </Emailinfo>
+</config>
