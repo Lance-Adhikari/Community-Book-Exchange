@@ -118,7 +118,7 @@
   --home-header-height: 170px;
   --home-content-max: clamp(72.5rem, 65vw, 95rem);
   --home-page-gutter: clamp(2.5rem, 6vw, 10rem);
-  --home-hero-content-max: clamp(75rem, 80vw, 100rem);
+  --home-hero-content-max: clamp(75rem, 72vw, 100rem);
   --home-hero-gutter: clamp(2rem, 4vw, 6rem);
   --home-hero-title-size: clamp(3.625rem, calc(2.3rem + 1.5vw), 4.875rem);
   --home-section-title-size: clamp(2.5rem, calc(2rem + 0.6vw), 3.35rem);
@@ -183,7 +183,7 @@
 .home-hero__layout {
   display: grid;
   grid-template-columns: minmax(0, 1.07fr) minmax(33.125rem, 0.93fr);
-  gap: clamp(3.25rem, 3.75vw, 5.75rem);
+  gap: clamp(2.5rem, 2.5vw, 4rem);
   align-items: center;
 }
 
@@ -675,6 +675,12 @@
     --home-hero-title-size: clamp(2.5rem, 5vw, 3.5rem);
   }
 
+  .home-hero {
+    min-height: auto;
+    align-items: flex-start;
+    padding-top: clamp(2.5rem, 4vw, 3rem);
+  }
+
   .home-hero__layout {
     grid-template-columns: 1fr;
     gap: clamp(2.375rem, 4vw, 3.25rem);
@@ -747,7 +753,7 @@
   }
 
   .home-hero {
-    padding: 52px 0 58px;
+    padding: clamp(2.5rem, 4vw, 3rem) 0 58px;
   }
 
   .home-hero__layout {
