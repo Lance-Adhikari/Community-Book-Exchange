@@ -215,6 +215,10 @@
   text-wrap: balance;
 }
 
+.home-hero__headline-line {
+  display: inline;
+}
+
 .home-hero__three-g {
   display: flex;
   gap: clamp(0.625rem, calc(0.35rem + 0.35vw), 0.95rem);
@@ -684,6 +688,13 @@
     width: min(100%, 51.25rem);
     justify-self: center;
     margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .home-hero__headline-line {
+    display: block;
+    white-space: nowrap;
   }
 }
 

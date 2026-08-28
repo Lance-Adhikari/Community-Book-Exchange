@@ -24,7 +24,11 @@ export default async function HomePage() {
           <div className="home-container home-hero__layout">
             <div className="home-hero__content">
               <p className="home-eyebrow">Community Book Exchange</p>
-              <h2 id="home-hero-title">Give books, Get books, and Grow with books.</h2>
+              <h2 id="home-hero-title">
+                <span className="home-hero__headline-line">Give books,</span>{" "}
+                <span className="home-hero__headline-line">Get books, and</span>{" "}
+                <span className="home-hero__headline-line">Grow with books.</span>
+              </h2>
               <p className="home-hero__three-g" aria-label="Give, Get, Grow">
                 Give <span aria-hidden="true">•</span> Get <span aria-hidden="true">•</span> Grow
               </p>
@@ -36,14 +40,16 @@ export default async function HomePage() {
                 <Link className="regbutton" href={homepageAction.href}>
                   {homepageAction.heroLabel}
                 </Link>
-                <a className="home-secondary-link" href="#how-it-works">
-                  Learn How It Works
-                </a>
+                {!isAuthenticated ? (
+                  <Link className="home-secondary-link" href="/books">
+                    Browse Books
+                  </Link>
+                ) : null}
               </div>
             </div>
 
             <div className="home-video-card">
-              <p className="home-video-card__label">See Community Book Exchange in action</p>
+              <p className="home-video-card__label">A Quick Introduction</p>
               <div className="commvideo">
                 {/* A verified caption or transcript is required before production. */}
                 <video
